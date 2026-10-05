@@ -1,0 +1,21 @@
+name: Release Please
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  release-please:
+    name: Call Release Please
+    uses: abijith-suresh/workflows/.github/workflows/release-please.yml@163055ac24b4169ae93ae05c5d7491b1cd5d96c7 # 0.6.0
+    with:
+      target-branch: main
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    secrets:
+      RELEASE_PLEASE_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN || github.token }}
