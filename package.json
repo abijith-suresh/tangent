@@ -1,0 +1,9 @@
+{
+  "name": "tangent",
+  "version": "0.0.1",
+  "description": "Catppuccin Mocha theme for Pi",
+  "license": "MIT",
+  "pi": {
+    "themes": ["./themes/catppuccin-mocha.json"]
+  }
+}
