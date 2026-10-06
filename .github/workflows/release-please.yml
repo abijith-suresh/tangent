@@ -8,8 +8,23 @@ on:
 permissions: {}
 
 jobs:
+  require-release-token:
+    name: Require release token
+    runs-on: ubuntu-24.04
+    timeout-minutes: 1
+    steps:
+      - name: Check RELEASE_PLEASE_TOKEN is configured
+        env:
+          RELEASE_PLEASE_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+        run: |
+          if [ -z "$RELEASE_PLEASE_TOKEN" ]; then
+            echo "::error::Set the repository Actions secret RELEASE_PLEASE_TOKEN before running releases."
+            exit 1
+          fi
+
   release-please:
     name: Call Release Please
+    needs: require-release-token
     uses: abijith-suresh/workflows/.github/workflows/release-please.yml@163055ac24b4169ae93ae05c5d7491b1cd5d96c7 # 0.6.0
     with:
       target-branch: main
@@ -18,4 +33,4 @@ jobs:
       issues: write
       pull-requests: write
     secrets:
-      RELEASE_PLEASE_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN || github.token }}
+      RELEASE_PLEASE_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
