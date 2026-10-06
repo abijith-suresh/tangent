@@ -1,11 +1,15 @@
 {
   "name": "tangent",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "description": "Catppuccin Mocha theme and prompt restatement command for Pi",
   "license": "MIT",
   "pi": {
-    "extensions": ["./extensions/clarify.js"],
-    "themes": ["./themes/catppuccin-mocha.json"]
+    "extensions": [
+      "./extensions/clarify.js"
+    ],
+    "themes": [
+      "./themes/catppuccin-mocha.json"
+    ]
   }
 }
