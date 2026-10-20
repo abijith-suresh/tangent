@@ -1,21 +1,30 @@
-# tangent
+# tangent — agent brief
 
-tangent aims to make small, proper improvements over default agent harnesses
-that work with any model. Keep it minimal and choose no default model or provider.
+tangent is a minimal Pi package for people who want better defaults: a Catppuccin
+Mocha theme and a `/clarify` command, with no model or provider chosen for them.
 
-The package contains the Catppuccin Mocha theme and `/clarify`. Preserve the
-theme's name and palette. `/clarify <text>` only restates the supplied text clearly
-and concisely, using the current session model and native Pi SDK APIs. Preserve
-intent, constraints, and unresolved facts. Leave the result in the editor for
-review; never submit it, execute the task, ask questions, or plan implementation.
-Do not add input interception, model configuration, subagents, or other commands.
-Add no dependencies, lockfile, TypeScript, frameworks, or placeholder features.
-Update this scope before adding product behavior.
+## The Project
 
-Validate themes against Pi's current schema and native resource loader using an
-isolated temporary HOME. Never change real Pi settings during verification.
-Use Conventional Commits and the shared Release Please workflow. Every future
-release increments only the patch version, including features and breaking
-changes, through `always-bump-patch`. Do not add version overrides. Release tags
-and titles have no `v` prefix. Require `RELEASE_PLEASE_TOKEN` without a fallback.
-Release PRs require manual review and merging. Published `0.0.1` is immutable.
+Core promise: small, proper improvements over default agent harnesses that work
+with any model. `/clarify <text>` restates only the supplied text with the current
+session model and leaves it in the editor; it never submits, executes, asks
+questions, or plans implementation, and it preserves intent, constraints, and
+unresolved facts. Preserve the theme's name and palette.
+
+Non-goals: input interception, model configuration, subagents, commands beyond
+`/clarify`, or placeholder features.
+
+Status: dormant — feature-complete for the current scope. `0.0.1` is published;
+`/clarify` ships in the next patch release.
+
+## Sources of Truth
+
+| Fact | Where |
+|---|---|
+| Product intent | § The Project (this file) |
+| Runtime behavior | code + tests |
+| Commands & deps | package.json |
+| How to work here | CONTRIBUTING.md |
+| Release contract | release-please-config.json + .github/workflows/release-please.yml |
+
+Code and tests are the authority; this file never overrides executable truth.
